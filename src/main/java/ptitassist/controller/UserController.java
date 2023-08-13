@@ -1,14 +1,19 @@
 package ptitassist.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ptitassist.Exception.EmailAlreadyExistsException;
+import ptitassist.exception.EmailAlreadyExistsException;
 import ptitassist.model.User;
 import ptitassist.service.UserService;
 
@@ -31,5 +36,11 @@ public class UserController {
         }
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        SecurityContextHolder.clearContext();
+        new SecurityContextLogoutHandler().logout(request, response, null);
+        return "Logged out successfully";
+    }
 
 }

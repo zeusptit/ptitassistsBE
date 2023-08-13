@@ -1,4 +1,4 @@
-package ptitassist.Exception;
+package ptitassist.exception;
 
 public class UserNotFoundException extends RuntimeException{
     public UserNotFoundException(String message){

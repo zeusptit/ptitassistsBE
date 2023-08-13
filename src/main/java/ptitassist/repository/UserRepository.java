@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.google.cloud.firestore.WriteResult;
 import java.util.concurrent.ExecutionException;
 
-import ptitassist.Exception.UserNotFoundException;
+import ptitassist.exception.UserNotFoundException;
 import ptitassist.model.User;
 
 import java.util.concurrent.ExecutionException;
