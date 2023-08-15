@@ -11,3 +11,7 @@
 ### Database
 - Using Firebase for data
 - Change Credentials in Controller
+
+### Dependencies
+- Maven, Java Web, JWt, Spring Security
+- Firebase, Cloudinary
