@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
+    //Chức năng đăng nhập
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody Auth auth) throws ExecutionException, InterruptedException {
         Boolean loginSuccess = authService.checkCredentials(auth);
@@ -22,6 +23,7 @@ public class AuthController {
         return ResponseEntity.badRequest().body("Invalid Credentials!");
     }
 
+    //Chức năng đăng kí
     @PostMapping("/register")
     public ResponseEntity<Object> register(@RequestBody User user) throws ExecutionException, InterruptedException {
         String timeCreated = authService.createUser(user);
@@ -30,6 +32,6 @@ public class AuthController {
         }
         return ResponseEntity.badRequest().body("Error!");
     }
-
+    
 }
 
