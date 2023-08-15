@@ -15,9 +15,12 @@ import java.util.Objects;
 public class PtitassistsBeApplication {
 
     public static void main(String[] args) throws IOException {
+
+        //Kết nối với firebase
         ClassLoader classLoader = PtitassistsBeApplication.class.getClassLoader();
 
         File file = new File(Objects.requireNonNull(classLoader.getResource("spring-firebase-auth.json")).getFile());
+        //có thể thay đổi file "spring-firebase-auth.json" trong Project Setting/Service Accounts trong Firebase
         FileInputStream serviceAccount = new FileInputStream(file.getAbsolutePath());
 
         FirebaseOptions options = new FirebaseOptions.Builder()
