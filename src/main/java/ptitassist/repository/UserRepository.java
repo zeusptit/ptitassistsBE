@@ -28,6 +28,7 @@ public class UserRepository {
         return user;
     }
 
+    //Cập nhật thông tin user: name, email, password
     public User updateUser(String username, User updateUser) throws ExecutionException, InterruptedException{
         Firestore dbFireStore = FirestoreClient.getFirestore();
         DocumentReference userReference = dbFireStore.collection("users").document(username);
