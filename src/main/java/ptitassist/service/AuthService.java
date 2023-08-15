@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 public class AuthService {
     private final AuthRepository authRepository;
 
+    //Các phương thức cho chức năng đăng nhập
     public User getUser(String id) throws ExecutionException, InterruptedException {
         return authRepository.getUser(id);
     }
