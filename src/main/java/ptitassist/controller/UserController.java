@@ -23,6 +23,7 @@ import java.util.concurrent.ExecutionException;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    // Cập nhật thông tin user
     @PostMapping("/user")
     public ResponseEntity<Object> changeUser(@RequestBody User updateUser, Authentication authentication) throws ExecutionException, InterruptedException{
         String curentUsername = authentication.getName();
@@ -36,6 +37,7 @@ public class UserController {
         }
     }
 
+    //Chức năng đăng xuất
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         SecurityContextHolder.clearContext();
